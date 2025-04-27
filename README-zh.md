@@ -236,5 +236,7 @@ Apache-2.0 license
 
 如果你欣赏这个项目, 欢迎匿名捐赠, 让我敢辞掉社畜工作全职开发 (:
 
+Paypal: https://paypal.me/RyderFreeman4Logos
+
 monero: 4AhAFwmzX1FgZRwWokLRJ6WenbH9MWpVPMjATPg15Mvp81AUwchWfRX9XFNuQ2Loxg2V8KTogCAPTZTe6JYXA9JPMDaTWhp
 
