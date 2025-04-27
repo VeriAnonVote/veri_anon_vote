@@ -1,0 +1,118 @@
+use crate::prelude::*;
+// use crate::{
+//     schema::verifier::{
+//         self,
+//         // id,
+//         dsl,
+//         // name,
+//         wallet_address,
+//         // max_upload_count,
+//         // description,
+//     },
+//     models::verifier::{
+//     //     NewVerifier,
+//         Verifier,
+//         // AdminReqVerifier,
+//         NewVerifier,
+//         // VerifierMap,
+//     },
+//     verifier::Verifier,
+// };
+
+#[post("/toggle_election_status")]
+pub async fn toggle_election_status(
+    election_closed: Data<ElectionCloseStatus>,
+) -> actix_web::Result<impl Responder> {
+    let status_to_be_set = !election_closed.load(Ordering::Relaxed);
+    web_block(move || -> AResult<()> {
+                election_closed.store(status_to_be_set, Ordering::Relaxed);
+                Ok(())
+    }).await?;
+
+    // let res = format!("election_closed: {status_to_be_set}");
+    let res = HttpResponse::Ok().json(status_to_be_set);
+    Ok(res)
+}
+
+
+// #[post("/upsert_verifier")]
+// pub async fn upsert_verifier(
+//     verifier_map: Data<VerifierMap>,
+//     mut verifier_info: web::Json<NewVerifier>,
+//     pool: web::Data<DbPool>,
+// ) -> actix_web::Result<String> {
+//     if verifier_info.api_key.is_none() {
+//         let api_key = passwords::PasswordGenerator::new()
+//             .length(128)
+//             .numbers(true)
+//             .lowercase_letters(true)
+//             .uppercase_letters(true)
+//             .symbols(false)
+//             .spaces(false)
+//             .exclude_similar_characters(true)
+//             .strict(true)
+//             .generate_one()
+//             .unwrap();
+
+//         verifier_info.api_key = Some(api_key);
+//     }
+
+//     // let verifier_info = Verifier::from(verifier_info.into_inner());
+//     web_block(move || -> AResult<()> {
+//         diesel::insert_into(verifier::table)
+//             .values(&*verifier_info)
+//             .on_conflict(wallet_address)
+//             .do_update()
+//             .set(&*verifier_info)
+//             .execute(&mut pool.conn()?)?;
+
+//         verifier_map.refresh(pool.as_ref())
+//         // verifiers = Verifier::get_all(pool.as_ref());
+//     }).await?;
+
+
+//     // let res = verifier_map.get();
+//     let res = "Upsert successfully".to_string();
+//     Ok(res)
+//     // Ok(HttpResponse::Ok().json(verifier_info))
+// }
+
+
+// #[get("/verifiers/details")]
+// pub async fn get_all_verifiers_details(
+//     verifier_map: Data<VerifierMap>,
+//     pool: web::Data<DbPool>,
+// ) -> actix_web::Result<impl Responder> {
+//     let verifiers = web_block(move || -> AResult<Vec<Verifier>> {
+//         Verifier::get_all(pool.as_ref())
+//     }).await?;
+
+//     // Ok(HttpResponse::Ok().json(verifier_info))
+
+//     let res = HttpResponse::Ok().json((verifiers, verifier_map));
+//     // let res = format!("Hello {}!", user);
+//     // let res = format!("Insert successfully");
+//     Ok(res)
+// }
+
+
+
+// #[delete("/verifier/{id}")]
+// pub async fn delete_verifier(
+//     verifier_map: Data<VerifierMap>,
+//     verifier_id: web::Path<i32>,
+//     pool: web::Data<DbPool>,
+// ) -> actix_web::Result<String> {
+//     web_block(move || -> AResult<()> {
+//         diesel::delete(dsl::verifier.filter(dsl::id.eq(*verifier_id)))
+//             .execute(&mut pool.conn()?)?;
+
+//         verifier_map.refresh(pool.as_ref())
+//     }).await?;
+
+
+//     let res = "Delete successfully".to_string();
+//     Ok(res)
+// }
+
+

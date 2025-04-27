@@ -1,0 +1,31 @@
+[package]
+name = "election_shared"
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+exclude.workspace = true
+edition.workspace = true
+
+[dependencies]
+# common = { path = "../common" }
+common_core = { path = "../common_core" }
+# voter_registration_shared = { path = "../voter_registration_shared", default-features = false, features = ["wasm"] }
+diesel = { version = "2.2.9", features = ["sqlite", "r2d2"] , optional = true }
+alloy_key_ring = { path = "../alloy_key_ring" }
+# voter_registrar = { path = "../voter_registrar" }
+derive_builder = "0.20.2"
+serde = { version = "1.0.219", features = ["derive"] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+voter_registration_shared = { path = "../voter_registration_shared" }
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+voter_registration_shared = { path = "../voter_registration_shared" }
+diesel_migrations = { version = "2.2.0", features = ["sqlite"] }
+diesel = { version = "2.2.9", features = ["sqlite", "r2d2"] }
+
+# [features]
+# default = [ "diesel", "diesel_migrations", "voter_registration_shared/default" ]
+# wasm = [ "voter_registration_shared/wasm" ]

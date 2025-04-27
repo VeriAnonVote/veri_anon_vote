@@ -1,0 +1,39 @@
+sqlite3_file_path = "/home/obj/w/onion_vote.sqlite3"
+admin_key = "gmVjwbAzYcgjhtHkYquUTgozqTRFCpFA@7CpevUoaJEXoA7YdLij_9oq_knRLgLyUopqq_3WWXXFsj3FFPyHirxVxoNq3cmnanVFEhT@qUbL4xnkeJNiUmbRCAnXdRvp%"
+
+[voter_requirements]
+required_identity = "mtsac_cs_students"
+allowed_proof_type = [
+    "student_id",
+    "youtube_video",
+]
+
+
+[admin]
+ports = [
+    "127.0.0.1:18080",
+]
+
+sockets = [
+    "/tmp/voter_registrar.admin.socket",
+]
+
+
+[verifier]
+ports = [
+    "127.0.0.1:28080",
+]
+
+sockets = [
+    "/tmp/voter_registrar_verifier.socket",
+]
+
+
+[public]
+ports = [
+    "127.0.0.1:38080",
+]
+
+sockets = [
+    "/tmp/voter_registrar_public.socket",
+]

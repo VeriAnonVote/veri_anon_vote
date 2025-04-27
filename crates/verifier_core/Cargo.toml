@@ -1,0 +1,21 @@
+[package]
+name = "verifier_core"
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+exclude.workspace = true
+edition.workspace = true
+
+
+[dependencies]
+common = { path = "../common" }
+alloy_key_ring = { path = "../alloy_key_ring", features = [ "trezor" ] }
+voter_registration_shared = { path = "../voter_registration_shared" }
+common_core = { path = "../common_core" }
+derive_builder = "0.20.2"
+hex = { version = "0.4.3", features = ["serde"] }
+tokio = { version = "1.44.1", features = ["tokio-macros", "tracing", "rt-multi-thread"] }
+voter_registrar = { path = "../voter_registrar" }

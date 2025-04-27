@@ -1,0 +1,25 @@
+[package]
+name = "veri_anon_vote_server"
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+exclude.workspace = true
+edition.workspace = true
+
+[dependencies]
+common = { path = "../common" }
+alloy_key_ring = { path = "../alloy_key_ring" }
+election_shared = { path = "../election_shared" }
+voter_registration_shared = { path = "../voter_registration_shared" }
+voter_registrar = { path = "../voter_registrar" }
+election_organizer = { path = "../election_organizer" }
+derive_builder = "0.20.2"
+diesel = { version = "2.2.8", features = ["sqlite", "r2d2"] }
+diesel_migrations = { version = "2.2.0", features = ["sqlite"] }
+serde = { version = "1.0.219", features = ["derive"] }
+tokio = { version = "1.44.1", features = ["macros"] }
+actix-web = "4.10.2"
+tracing = "0.1.41"

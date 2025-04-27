@@ -1,0 +1,30 @@
+[package]
+name = "voter_registration_shared"
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+exclude.workspace = true
+edition.workspace = true
+
+[dependencies]
+# common = { path = "../common" }
+alloy_key_ring = { path = "../alloy_key_ring" }
+# voter_registrar = { path = "../voter_registrar" }
+derive_builder = "0.20.2"
+serde = { version = "1.0.219", features = ["derive"] }
+utoipa = "5.3.1"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+common_core = { path = "../common_core", default-features = false, features = ["wasm"] }
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+common_core = { path = "../common_core" }
+diesel_migrations = { version = "2.2.0", features = ["sqlite"] }
+diesel = { version = "2.2.9", features = ["sqlite", "r2d2"] }
+
+# [features]
+# default = [ "diesel", "diesel_migrations" ]
+# wasm = []
+

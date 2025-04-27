@@ -1,0 +1,45 @@
+[package]
+name = "common"
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+exclude.workspace = true
+edition.workspace = true
+
+[dependencies]
+common_core = { path = "../common_core" }
+# election_shared = { path = "../election_shared" }
+voter_registration_shared = { path = "../voter_registration_shared" }
+actix-web = "4.10.2"
+actix-web-httpauth = "0.8.2"
+alloy = { version = "0.12.6", features = ["signer-mnemonic", "signer-trezor"] }
+diesel = { version = "2.2.8", features = ["sqlite", "r2d2"] }
+reqwest = { version = "0.12.15", default-features = false, features = ["zstd", "json", "socks"] }
+reqwest-middleware = { version = "0.4.1", features = ["json", "rustls-tls"] }
+reqwest-retry = "0.7.0"
+reqwest-tracing = "0.5.6"
+# rand = "0.9.0"
+tokio = { version = "1.44.1", features = ["tokio-macros", "tracing"] }
+tracing = "0.1.41"
+tracing-subscriber = { version = "0.3.19", features = ["env-filter"] }
+url = "2.5.4"
+utoipa = { version = "5.3.1", features = ["actix_extras"] }
+crossterm = { version = "0.28.1", features = ["event-stream"] }
+ratatui = "0.29.0"
+utoipa-swagger-ui = { version = "9.0.1", features = ["actix-web"] }
+utoipa-actix-web = "0.1.2"
+tui-textarea = "0.7.0"
+derive_builder = "0.20.2"
+serde = { version = "1.0.219", features = ["derive"] }
+actix-cors = "0.7.1"
+actix-files = "0.6.6"
+
+[features]
+default = ["scalar"]
+scalar = ["common_core/scalar"]
+curve25519-dalek = ["common_core/curve25519-dalek"]
+trezor = ["alloy/signer-trezor"]
+# wasm = ["wasm-bindgen"]

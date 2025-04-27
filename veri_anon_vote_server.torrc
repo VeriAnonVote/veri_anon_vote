@@ -1,0 +1,10 @@
+DataDirectory /home/obj/.veri_anon_vote_server/
+PidFile /home/obj/.veri_anon_vote_server/tor.pid
+HiddenServiceDir /home/obj/.veri_anon_vote_server/public_service_dir/
+HiddenServicePort 80 127.0.0.1:38080
+HiddenServiceNonAnonymousMode 1
+HiddenServiceSingleHopMode 1
+SocksPort 0
+# ControlPort 9071
+# ControlSocket
+Log notice file /home/obj/.veri_anon_vote_server/tor.log

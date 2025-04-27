@@ -1,0 +1,7 @@
+/target
+*-conflict-*
+.*-conflict-*
+.*.sw*
+/cache
+/tmp
+/tmpfs

@@ -1,0 +1,50 @@
+[workspace.package]
+name = "veri_anon_vote"
+version = "0.0.1"  #:version
+authors = ["Ryder Freeman <RyderFreeman4Logos@gmail.com>"]
+description = """
+"""
+# documentation = ""
+# homepage = ""
+repository = "https://github.com/VeriAnonVote/veri_anon_vote"
+license = "Apache-2.0"
+keywords = [ "privacy" ]
+categories = [ "command-line-utilities" ]
+exclude = [
+  "HomebrewFormula",
+  "/.github/",
+  "/ci/",
+  "/pkg/brew",
+  "/benchsuite/",
+  "/scripts/",
+]
+# autotests = false
+edition = "2021"
+
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"
+
+[workspace]
+members = [
+    "crates/common_core",
+    "crates/common",
+    "crates/alloy_key_ring",
+    "crates/election_organizer",
+    "crates/voter_registration_shared",
+    "crates/verifier_core",
+    "crates/voter_core",
+    "crates/voter_registrar",
+    "crates/election_shared",
+    "crates/voter_web",
+    "crates/veri_anon_vote_server",
+]
+resolver = "2"
+

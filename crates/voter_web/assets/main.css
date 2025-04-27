@@ -1,0 +1,84 @@
+/* App-wide styling */
+body {
+    background-color: #0f1116;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+}
+
+#hero {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#links {
+    width: 400px;
+    text-align: left;
+    font-size: x-large;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+#links a {
+    color: white;
+    text-decoration: none;
+    margin-top: 20px;
+    margin: 10px 0px;
+    border: white 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#links a:hover {
+    background-color: #1f1f1f;
+    cursor: pointer;
+}
+
+#header {
+    max-width: 1200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+#main { display: flex; flex-direction: column; height: 100vh; }
+.content-area { flex-grow: 1; padding: 1rem; overflow-y: auto; }
+.bottom-nav { flex-shrink: 0; display: flex; justify-content: space-around; padding: 0.8rem 0.5rem; border-top: 1px solid #ccc; background-color: #f0f0f0; }
+.nav-button { background: none; border: none; padding: 0.5rem; font-size: 1rem; cursor: pointer; border-radius: 4px; }
+.nav-button-active { font-weight: bold; background-color: #ddd; }
+/* Simple Form Styling */
+input[type="text"], input[type="password"], textarea { width: 95%; padding: 0.7rem; margin-bottom: 0.5rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
+button { padding: 0.8rem 1.2rem; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; margin-top: 0.5rem; margin-right: 0.5rem;}
+button:hover { background-color: #0056b3; }
+button:disabled { background-color: #aaa; cursor: not-allowed; }
+.error-message { color: red; margin-top: 0.5rem; }
+.success-message { color: green; margin-top: 0.5rem; }
+.mnemonic-display { background-color: #eee; padding: 1rem; border-radius: 4px; margin-bottom: 1rem; word-spacing: 0.5em; line-height: 1.6; }
+.log-entry { margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px dotted #eee; font-size: 0.9rem; }
+.log-timestamp { font-weight: bold; margin-right: 0.5em;}
+.log-level-error { color: red; }
+.log-level-info { color: blue; }

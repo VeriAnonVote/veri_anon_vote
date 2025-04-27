@@ -1,0 +1,27 @@
+[package]
+name = "voter_core"
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+exclude.workspace = true
+edition.workspace = true
+
+[dependencies]
+common_core = { path = "../common_core"}
+alloy_key_ring = { path = "../alloy_key_ring" }
+# election_shared = { path = "../election_shared" }
+election_shared = { path = "../election_shared" }
+# voter_registrar = { path = "../voter_registrar" }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+common = { path = "../common" }
+
+# [features]
+# # default = [ "client" ]
+# default = [ "wasm" ]
+# wasm = []
+# client = [ "common", "alloy_key_ring/trezor" ]
+

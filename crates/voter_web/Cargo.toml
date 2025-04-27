@@ -1,0 +1,28 @@
+[package]
+name = "voter_web"
+version = "0.1.0"
+authors = ["Ryder Freeman <RyderFreeman4Logos@gmail.com>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+alloy_key_ring = { path = "../alloy_key_ring" }
+voter_core = { path = "../voter_core" }
+common_core = { path = "../common_core" }
+election_shared = { path = "../election_shared" }
+
+dioxus = { version = "0.6.0", features = [] }
+serde = { version = "1.0.219", features = ["derive"] }
+thiserror = "2.0.12"
+uuid = { version = "1.16.0", features = ["v4"] }
+web-sys = { version = "0.3.77", features = ["Location"] }
+dioxus-logger = "0.6.2"
+dioxus-i18n = "0.4.3"
+
+
+[features]
+default = ["web"]
+web = ["dioxus/web"]
+desktop = ["dioxus/desktop"]
+mobile = ["dioxus/mobile"]

@@ -1,0 +1,51 @@
+sqlite3_file_path = "/home/obj/w/veri_anon_vote_server.sqlite3"
+admin_key = "gmVjwbAzYcgjhtHkYquUTgozqTRFCpFA@7CpevUoaJEXoA7YdLij_9oq_knRLgLyUopqq_3WWXXFsj3FFPyHirxVxoNq3cmnanVFEhT@qUbL4xnkeJNiUmbRCAnXdRvp%"
+voter_registrar_url = "http://localhost:38080/all_voters"
+
+[voter_requirements]
+# required_identity = "mtsac_cs_students"
+# election_name = "2025 Summer MTSAC College CS Dept Student Rep Election"
+required_identity = "mandarin_user"
+allowed_proof_type = [
+    "youtube_video",
+    # "student_id",
+]
+
+
+[vote_requirements]
+# required_identity = "mtsac_cs_students"
+# election_name = "2025 Summer MTSAC College CS Dept Student Rep Election"
+required_identity = "mandarin_user"
+election_name = "The election of China's top leader"
+
+
+[admin]
+ports = [
+    "127.0.0.1:18080",
+]
+
+sockets = [
+    # "/tmp/veri_anon_vote_server.admin.socket",
+]
+
+
+
+[verifier]
+ports = [
+    "127.0.0.1:28080",
+]
+
+sockets = [
+    # "/tmp/voter_registrar_verifier.socket",
+]
+
+
+
+[public]
+ports = [
+    "127.0.0.1:38080",
+]
+
+sockets = [
+    # "/tmp/veri_anon_vote_server_public.socket",
+]
