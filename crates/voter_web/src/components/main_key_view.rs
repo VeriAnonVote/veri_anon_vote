@@ -129,7 +129,8 @@ pub fn MainKeyView() -> Element {
                         rows: "4",
                         placeholder: "word1 word2 word3...",
                         // value: None::<String>,
-                        value: "{input_mnemonic}",
+                        // value: "{input_mnemonic}",
+                        value: "",
                         oninput: move |evt| input_mnemonic.set(evt.value().clone()),
                     }
                     button {
