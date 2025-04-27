@@ -238,4 +238,6 @@ Apache-2.0 license
 
 If you want to support me, please consider donating to support the development.
 
+Paypal: https://paypal.me/RyderFreeman4Logos
+
 monero: 4AhAFwmzX1FgZRwWokLRJ6WenbH9MWpVPMjATPg15Mvp81AUwchWfRX9XFNuQ2Loxg2V8KTogCAPTZTe6JYXA9JPMDaTWhp
