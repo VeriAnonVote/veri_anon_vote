@@ -1,5 +1,9 @@
 # 可验证的匿名投票系统 VeriAnonVote
 
+Demo版[网址](http://dczig7f2e6nvrnmw7ne2bq5q6hfi4shc5ro6j3jr6yz3tak2seaxmyyd.onion/index.html)
+
+需要使用[洋葱浏览器](https://www.torproject.org/zh-CN/download/)打开
+
 ## 1. 项目简介
 
 本项目是一个开源的全栈解决方案，旨在提供一个安全、匿名且可验证的电子投票系统。它利用**可链接环签名 (Linkable Ring Signature)** 技术，特别是 **[BLSAG](https://github.com/edwinhere/nazgul) (Back's Linkable Spontaneous Anonymous Group signatures)** 的实现，来确保选民在投票过程中的隐私，同时防止欺诈行为（如重复投票），并允许对选举结果进行公开验证。
