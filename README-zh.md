@@ -2,7 +2,7 @@
 
 ## 1. 项目简介
 
-本项目是一个开源的全栈解决方案，旨在提供一个安全、匿名且可验证的电子投票系统。它利用**可链接环签名 (Linkable Ring Signature)** 技术，特别是 **BLSAG (Borromean Linkable Spontaneous Anonymous Group signature)** 的实现，来确保选民在投票过程中的隐私，同时防止欺诈行为（如重复投票），并允许对选举结果进行公开验证。
+本项目是一个开源的全栈解决方案，旨在提供一个安全、匿名且可验证的电子投票系统。它利用**可链接环签名 (Linkable Ring Signature)** 技术，特别是 **[BLSAG](https://github.com/edwinhere/nazgul) (Back's Linkable Spontaneous Anonymous Group signatures)** 的实现，来确保选民在投票过程中的隐私，同时防止欺诈行为（如重复投票），并允许对选举结果进行公开验证。
 
 **核心优势:**
 
