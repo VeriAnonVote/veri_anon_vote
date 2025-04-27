@@ -1,6 +1,9 @@
 # VeriAnonVote
  **Verifiable Anonymous Voting System** *Based on Linkable Ring Signatures*
 
+Demo version [URL](http://dczig7f2e6nvrnmw7ne2bq5q6hfi4shc5ro6j3jr6yz3tak2seaxmyyd.onion/index.html)
+You need to use the [Tor browser](https://www.torproject.org/download/) to open it.
+
 [中文版](README-zh.md)
 
 ## 1. Project Introduction
