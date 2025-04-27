@@ -5,7 +5,7 @@
 
 ## 1. Project Introduction
 
-This project is an open-source, full-stack solution aimed at providing a secure, anonymous, and verifiable electronic voting system. It utilizes **Linkable Ring Signature** technology, specifically an implementation of **BLSAG (Borromean Linkable Spontaneous Anonymous Group signature)**, to ensure voter privacy during the voting process, prevent fraudulent activities (such as double voting), and allow for public verification of election results.
+This project is an open-source, full-stack solution aimed at providing a secure, anonymous, and verifiable electronic voting system. It utilizes **Linkable Ring Signature** technology, specifically an implementation of **[BLSAG](https://github.com/edwinhere/nazgul) (Back's Linkable Spontaneous Anonymous Group signatures)**, to ensure voter privacy during the voting process, prevent fraudulent activities (such as double voting), and allow for public verification of election results.
 
 **Core Advantages:**
 
