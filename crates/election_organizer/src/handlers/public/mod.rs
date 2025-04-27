@@ -31,7 +31,7 @@ pub async fn insert_vote_record(
                 .load(conn)?;
 
             if !new_vote.check_signature_uniqueness(&all_vote_records, &pub_ring) {
-                bail!("You have already voted.");
+                bail!("The election has not yet started OR You have already voted.");
             }
             drop(all_vote_records);
 
