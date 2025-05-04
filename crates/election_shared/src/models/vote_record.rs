@@ -16,7 +16,7 @@ use crate::schema::{
 pub struct VoteRecord {
     pub id: i32,
     pub vote_choice: String,
-    // #[serde(with = "serde_json")]
+    #[serde(with = "base58")]
     pub ring_sig: Vec<u8>,
 }
 
@@ -59,7 +59,7 @@ impl VoteRecord {
 pub struct NewVoteRecord {
     #[builder(setter(into))]
     pub vote_choice: String,
-    // #[serde(with = "serde_json")]
+    #[serde(with = "base58")]
     #[builder(default = "Vec::new()")]
     pub ring_sig: Vec<u8>,
 }

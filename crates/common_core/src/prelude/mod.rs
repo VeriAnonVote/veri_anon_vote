@@ -14,10 +14,28 @@ pub use color_eyre::Result as CResult;
 
 pub use bs58;
 
+cfg_if!{
+    if #[cfg(target_arch = "wasm32")] {
+    } else {
+        pub use std::{
+            fs::{
+                self,
+                File,
+            },
+            io::{
+                self,
+                Write,
+            },
+        };
+    }
+}
+pub use csv::{
+    self,
+    WriterBuilder,
+};
 pub use std::fmt::Display;
 pub use std::fmt::Debug;
 pub use std::{
-    io,
     sync::atomic::{
         AtomicBool,
         Ordering,

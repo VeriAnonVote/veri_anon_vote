@@ -92,6 +92,7 @@ impl ServerContext {
                     .service(toggle_registration_status)
                     .service(get_all_verifiers_details)
                     .service(toggle_election_status)
+                    .service(generate_election_result)
                 )
                 .service(SwaggerUi::new("/swagger-ui/admin/{_:.*}").urls(vec![
                         (
