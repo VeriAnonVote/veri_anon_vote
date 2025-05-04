@@ -1,4 +1,5 @@
 use crate::prelude::*;
+pub use election_shared::models::vote_record::VoteRecord;
 // use crate::{
 //     schema::verifier::{
 //         self,
@@ -35,6 +36,50 @@ pub async fn toggle_election_status(
 }
 
 
+#[post("/generate_election_result")]
+pub async fn generate_election_result(
+    config: web::Data<OrganizerConfig>,
+    pool: web::Data<DbPool>,
+) -> actix_web::Result<impl Responder> {
+    // let sqlite3_file_path = config.sqlite3_file_path.clone();
+    let _ = web_block(move || -> AResult<()> {
+    // let data_dir = Path::new(&sqlite3_file_path);
+    let data_dir = Path::new(&config.sqlite3_file_path);
+        let target_dir = data_dir.parent()
+            // .ok_or_else()?
+            .ok_or(msg("data_dir don't have parent"))?
+            .join("pub")
+            .join("files");
+
+        fs::create_dir_all(&target_dir)?;
+
+        let file_path = target_dir.join("vote_record.csv");
+
+        let file = File::create(&file_path)?;
+
+        // file.write_all(b"\xEF\xBB\xBF")?; // UTF-8 BOM
+
+
+        let all_vote_records: Vec<VoteRecord> = VoteRecord::get_all(pool.get_ref())?;
+        let mut wtr = WriterBuilder::new()
+            .delimiter(b',')
+            .quote_style(csv::QuoteStyle::Necessary)
+            .from_writer(file);
+
+        for record in all_vote_records {
+            wtr.serialize(record)?;
+        }
+
+        // 8. 刷新缓冲区，确保所有数据写入文件
+        wtr.flush()?;
+        Ok(())
+    }).await?;
+
+    // let res = HttpResponse::Ok().json(all_vote_records);
+    // Ok(res)
+    // let res = HttpResponse::Ok().json(config.vote_requirements.clone());
+    Ok("finished")
+}
 // #[post("/upsert_verifier")]
 // pub async fn upsert_verifier(
 //     verifier_map: Data<VerifierMap>,

@@ -48,6 +48,7 @@ pub use election_organizer::handlers::{
     admin::{
         // self,
         toggle_election_status,
+        generate_election_result,
     },
     public::{
         insert_vote_record,
